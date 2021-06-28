@@ -1,6 +1,6 @@
 <header>
   <h2>Todo List</h2>
 </header>
-<app-todos-entry></app-todos-entry>
+<app-todos-entry (itemAdded)="onItemAdded($event)"></app-todos-entry>
 
-<app-todos-list></app-todos-list>
+<app-todos-list [items]="todoList"></app-todos-list>
