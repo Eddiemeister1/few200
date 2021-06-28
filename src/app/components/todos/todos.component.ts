@@ -1,27 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoListItemViewModel } from 'src/app/models/todos.models';
+import { TodosDataService } from 'src/app/services/todos-data.service';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
-  todoList: TodoListItemViewModel[] = [
-    { id: '1', description: 'Rake Leaves' },
-    { id: '2', description: 'Wash Deck' }
-  ]
-  constructor() { }
+  todoList$!: Observable<TodoListItemViewModel[]>;
+  constructor(private service: TodosDataService) { }
 
   ngOnInit(): void {
+    this.todoList$ = this.service.getData();
   }
 
   onItemAdded(thing: { item: string }) {
-    const newItem: TodoListItemViewModel = {
-      description: thing.item,
-      id: '99'
-    };
-
-    this.todoList = [newItem, ...this.todoList];
-    console.log(thing);
+    this.service.addTodoItem({ description: thing.item });
   }
 }

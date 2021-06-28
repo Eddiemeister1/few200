@@ -8,7 +8,7 @@ import { TodoListItemViewModel } from 'src/app/models/todos.models';
 })
 export class ListComponent implements OnInit {
 
-  @Input() items: TodoListItemViewModel[] = [];
+  @Input() items!: TodoListItemViewModel[] | null;
   constructor() { }
 
   ngOnInit(): void {

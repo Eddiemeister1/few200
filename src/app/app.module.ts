@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { EntryComponent } from './components/todos/components/entry/entry.component';
 import { ListComponent } from './components/todos/components/list/list.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TodosDataService } from './services/todos-data.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [TodosDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

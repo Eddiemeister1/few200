@@ -3,4 +3,4 @@
 </header>
 <app-todos-entry (itemAdded)="onItemAdded($event)"></app-todos-entry>
 
-<app-todos-list [items]="todoList"></app-todos-list>
+<app-todos-list [items]="todoList$ | async "></app-todos-list>
