@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Observable } from 'rxjs';
+import { TodosDataService } from 'src/app/services/todos-data.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  numberOfTodoItems$!: Observable<number>;
+  constructor(private service: TodosDataService) { }
 
   ngOnInit(): void {
+    this.numberOfTodoItems$ = this.service.getUnumberOfTodoItems();
   }
 
 }

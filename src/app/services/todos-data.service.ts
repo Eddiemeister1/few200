@@ -1,5 +1,6 @@
 import { TodoListItemViewModel } from "../models/todos.models";
 import { BehaviorSubject, Observable } from "rxjs";
+import { map } from 'rxjs/operators';
 export class TodosDataService {
 
   private data: TodoListItemViewModel[];
@@ -27,5 +28,11 @@ export class TodosDataService {
     //send it to the API
     this.data = [newItem, ...this.data];
     this.subject.next(this.data);
+  }
+
+  getUnumberOfTodoItems(): Observable<number> {
+    return this.subject.asObservable().pipe(
+      map(items => items.length)
+    );
   }
 }
