@@ -8,7 +8,7 @@ import { TodosComponent } from './components/todos/todos.component';
 import { HomeComponent } from './components/home/home.component';
 import { EntryComponent } from './components/todos/components/entry/entry.component';
 import { ListComponent } from './components/todos/components/list/list.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +20,8 @@ import { ListComponent } from './components/todos/components/list/list.component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
