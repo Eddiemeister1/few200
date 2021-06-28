@@ -23,6 +23,10 @@ export function reducer(currentState: CounterState = initialState, action: Actio
       }
     }
 
+    case 'reset': {
+      return initialState
+    }
+
     default: {
       return currentState
     }

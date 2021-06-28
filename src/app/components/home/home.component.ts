@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { AppState } from 'src/app/reducers';
 import { TodosDataService } from 'src/app/services/todos-data.service';
 @Component({
   selector: 'app-home',
@@ -7,12 +9,13 @@ import { TodosDataService } from 'src/app/services/todos-data.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  count$!: Observable<number>;
   numberOfTodoItems$!: Observable<number>;
-  constructor(private service: TodosDataService) { }
+  constructor(private service: TodosDataService, private store: Store<AppState>) { }
 
   ngOnInit(): void {
     this.numberOfTodoItems$ = this.service.getUnumberOfTodoItems();
+    this.count$ = this.store.select(s => s.counter.current);
   }
 
 }
