@@ -14,6 +14,7 @@ import { CounterComponent } from './components/counter/counter.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { CountByComponent } from './components/counter/count-by/count-by.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     HomeComponent,
     EntryComponent,
     ListComponent,
-    CounterComponent
+    CounterComponent,
+    CountByComponent
   ],
   imports: [
     BrowserModule,

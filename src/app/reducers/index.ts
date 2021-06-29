@@ -23,7 +23,18 @@ export const selectCounterCurrent = createSelector(
   (c) => c.current
 )
 
+export const selectCountingBy = createSelector(
+  selectCounterBranch,
+  b => b.by
+)
+
 export const selectCounterResetDisabled = createSelector(
   selectCounterCurrent,
   c => c === 0
+)
+
+export const selectDecrementShouldBeDisabled = createSelector(
+  selectCounterCurrent,
+  selectCountingBy,
+  (current, by) => current - by < 0
 )
