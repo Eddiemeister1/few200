@@ -14,6 +14,14 @@ export class SongsDataService {
     )
   }
 
+  addSong(song: SongEntity): Observable<SongEntity> {
+    const songToSend = {
+      title: song.title,
+      artist: song.title,
+      album: song.album
+    }
+    return this.client.post<SongEntity>('http://localhost:3000/songs', songToSend)
+  }
   constructor(private client: HttpClient) {
 
   }
