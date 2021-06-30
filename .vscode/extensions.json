@@ -4,6 +4,7 @@
     "angular.ng-template",
     "editorconfig.editorconfig",
     "dbaeumer.vscode-eslint",
-    "johnpapa.vscode-peacock"
+    "johnpapa.vscode-peacock",
+    "humao.rest-client"
   ]
 }

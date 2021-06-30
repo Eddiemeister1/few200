@@ -11,7 +11,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './effects/app.effects';
 import { SongsDataService } from './services/songs-data.service';
 import { SongEffects } from './effects/song.effects';
-
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -41,7 +41,8 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature(featureName, reducers),
-    EffectsModule.forFeature([AppEffects, SongEffects])
+    EffectsModule.forFeature([AppEffects, SongEffects]),
+    HttpClientModule
   ],
   providers: [SongsDataService]
   //exports : [ListComponent]

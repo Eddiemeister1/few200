@@ -2,7 +2,7 @@ import { EntityState, createEntityAdapter } from '@ngrx/entity';
 import { createReducer, Action, on } from '@ngrx/store';
 import * as actions from '../actions/song.action';
 export interface SongEntity {
-  id: String,
+  _id: String,
   title: String,
   artist: String,
   album: String

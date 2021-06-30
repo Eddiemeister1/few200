@@ -1,5 +1,5 @@
 export interface SongListItem {
-  id: String,
+  _id: String,
   title: String,
   artist: String,
   album: String
