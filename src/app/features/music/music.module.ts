@@ -3,7 +3,15 @@ import { CommonModule } from '@angular/common';
 import { MusicComponent } from './music.component';
 import { RouterModule, Routes } from '@angular/router';
 import { EntryComponent } from './components/entry/entry.component';
-import { ListComponent } from 'src/app/components/todos/components/list/list.component';
+import { ListComponent } from './components/list/list.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from 'src/app/reducers';
+import { featureName } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './effects/app.effects';
+import { SongsDataService } from './services/songs-data.service';
+import { SongEffects } from './effects/song.effects';
+
 
 const routes: Routes = [
   {
@@ -26,11 +34,16 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     MusicComponent,
-    EntryComponent
+    EntryComponent,
+    ListComponent
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
-  ]
+    RouterModule.forChild(routes),
+    StoreModule.forFeature(featureName, reducers),
+    EffectsModule.forFeature([AppEffects, SongEffects])
+  ],
+  providers: [SongsDataService]
+  //exports : [ListComponent]
 })
 export class MusicModule { }
